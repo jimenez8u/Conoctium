@@ -61,7 +61,7 @@ public class Player : MonoBehaviour {
 			}
 			Vector3 mePlayer = gameObject.GetComponent<Transform> ().position;
 			Vector3 inbetween = Vector3.Normalize(otherPlayer - mePlayer);
-			gameObject.GetComponent<Rigidbody> ().velocity += 2*inbetween;
+			gameObject.GetComponent<Rigidbody> ().velocity += 1.5f*inbetween;
 			//gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
 		}
 		if (Input.GetButton ("Fire3" + select)) {
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour {
 				}
 				Vector3 mePlayer = gameObject.GetComponent<Transform> ().position;
 				Vector3 inbetween = Vector3.Normalize (otherPlayer - mePlayer);
-				gameObject.GetComponent<Rigidbody> ().velocity -= 25 * inbetween;
+				gameObject.GetComponent<Rigidbody> ().velocity -= 20 * inbetween;
 				repulsion = true;
 			}
 		} else if(isGrounded)
