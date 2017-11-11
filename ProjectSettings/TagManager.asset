@@ -7,7 +7,16 @@ TagManager:
   - Player1
   - Player2
   - Sol
+  - NewGameButton
+  - LoadGameButton
+  - OptionsButton
+  - QuitButton
+  - Level1btn
   - Level2btn
+  - Level3btn
+  - Level4btn
+  - Backbtn
+  - Level10btn
   layers:
   - Default
   - TransparentFX
