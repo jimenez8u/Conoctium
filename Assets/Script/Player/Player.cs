@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
     private float jumpSpeed = 10f;
 	private bool repulsion = false;
 	private bool isGrounded;
+	private float maxSpeed = 25f;
 	// Use this for initialization
 	void Start ()
     {
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour {
 			}
 			Vector3 mePlayer = gameObject.GetComponent<Transform> ().position;
 			Vector3 inbetween = Vector3.Normalize(otherPlayer - mePlayer);
-			gameObject.GetComponent<Rigidbody> ().velocity += 1.5f*inbetween;
+			gameObject.GetComponent<Rigidbody> ().velocity += 2f*inbetween;
 			//gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
 		}
 		//■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
@@ -84,6 +85,7 @@ public class Player : MonoBehaviour {
 				Vector3 mePlayer = gameObject.GetComponent<Transform> ().position;
 				Vector3 inbetween = Vector3.Normalize (otherPlayer - mePlayer);
 				gameObject.GetComponent<Rigidbody> ().velocity -= 20 * inbetween;
+				
 				repulsion = true;
 			}
 		}
@@ -91,6 +93,23 @@ public class Player : MonoBehaviour {
 		{
 			repulsion = false;
 		}
+		if (gameObject.GetComponent<Rigidbody> ().velocity.x > maxSpeed)
+			gameObject.GetComponent<Rigidbody> ().velocity = new Vector3(maxSpeed, gameObject.GetComponent<Rigidbody> ().velocity.y, gameObject.GetComponent<Rigidbody> ().velocity.z);
+
+		if(gameObject.GetComponent<Rigidbody> ().velocity.y > maxSpeed)
+			gameObject.GetComponent<Rigidbody> ().velocity = new Vector3(gameObject.GetComponent<Rigidbody> ().velocity.x, maxSpeed, gameObject.GetComponent<Rigidbody> ().velocity.z);
+
+		if(gameObject.GetComponent<Rigidbody> ().velocity.z > maxSpeed) 
+			gameObject.GetComponent<Rigidbody> ().velocity = new Vector3(gameObject.GetComponent<Rigidbody> ().velocity.x, gameObject.GetComponent<Rigidbody> ().velocity.y, maxSpeed);
+
+		if (gameObject.GetComponent<Rigidbody> ().velocity.x < -maxSpeed)
+			gameObject.GetComponent<Rigidbody> ().velocity = new Vector3(-maxSpeed, gameObject.GetComponent<Rigidbody> ().velocity.y, gameObject.GetComponent<Rigidbody> ().velocity.z);
+
+		if(gameObject.GetComponent<Rigidbody> ().velocity.y < -maxSpeed)
+			gameObject.GetComponent<Rigidbody> ().velocity = new Vector3(gameObject.GetComponent<Rigidbody> ().velocity.x, -maxSpeed, gameObject.GetComponent<Rigidbody> ().velocity.z);
+
+		if(gameObject.GetComponent<Rigidbody> ().velocity.z < -maxSpeed) 
+			gameObject.GetComponent<Rigidbody> ().velocity = new Vector3(gameObject.GetComponent<Rigidbody> ().velocity.x, gameObject.GetComponent<Rigidbody> ().velocity.y, -maxSpeed);
     }
 
 private void IsGrounded()
