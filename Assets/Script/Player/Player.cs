@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     private float speed = 33.0f;
@@ -116,8 +117,12 @@ public class Player : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision coli)
 	{
-		if (coli.gameObject.tag == "Player2" && gameObject.tag == "Player1")
-			Debug.Log ("oui");
+		if (coli.gameObject.tag == "Player2" && gameObject.tag == "Player1") 
+		{
+			SceneManager.LoadScene(2, LoadSceneMode.Single);
+
+		}
+
 	}
 	private void IsGrounded()
 	{
