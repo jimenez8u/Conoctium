@@ -119,8 +119,11 @@ public class Player : MonoBehaviour {
 	{
 		if (coli.gameObject.tag == "Player2" && gameObject.tag == "Player1") 
 		{
-			SceneManager.LoadScene(2, LoadSceneMode.Single);
-
+			int level = SceneManager.GetActiveScene ().buildIndex;
+			if(level == SceneManager.sceneCount)
+				SceneManager.LoadScene(0, LoadSceneMode.Single);
+			else
+				SceneManager.LoadScene(level+1, LoadSceneMode.Single);
 		}
 
 	}
