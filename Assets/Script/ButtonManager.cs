@@ -11,9 +11,7 @@ public class ButtonManager : MonoBehaviour {
 	}
 
 	public void Transition1 () {
-		
 		animator.SetTrigger("MoveMenuRight");
-
 	}
 	public void Transition2 () {
 
