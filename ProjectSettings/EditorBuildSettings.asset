@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Map/MainMenu.unity
     guid: 326f22dc8d298ed4380470566ffdf6f1
   - enabled: 1
-    path: Assets/Map/MainMenu2.unity
-    guid: edfd4d97a3f85124e99044d0a5a3d493
-  - enabled: 1
     path: Assets/Map/Level1.unity
     guid: 5dc0d53fc3c12a840810c36a1becf50f
   - enabled: 1

@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
 				}
 				Vector3 mePlayer = gameObject.GetComponent<Transform> ().position;
 				Vector3 inbetween = Vector3.Normalize (otherPlayer - mePlayer);
-				gameObject.GetComponent<Rigidbody> ().velocity -= 50 * inbetween;
+				gameObject.GetComponent<Rigidbody> ().velocity -= 20 * inbetween;
 				
 				repulsion = true;
 			}
@@ -120,10 +120,14 @@ public class Player : MonoBehaviour {
 		if (coli.gameObject.tag == "Player2" && gameObject.tag == "Player1") 
 		{
 			int level = SceneManager.GetActiveScene ().buildIndex;
-			//if(level >= SceneManager.sceneCount-1)
-			//	SceneManager.LoadScene(0, LoadSceneMode.Single);
-			//else
-				SceneManager.LoadScene(level+1, LoadSceneMode.Single);
+			if (level >= SceneManager.sceneCountInBuildSettings-1) 
+			{
+				SceneManager.LoadScene (0, LoadSceneMode.Single);
+			}
+			else 
+			{
+				SceneManager.LoadScene (level + 1, LoadSceneMode.Single);
+			}
 		}
 
 	}
