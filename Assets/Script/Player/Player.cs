@@ -42,14 +42,16 @@ public class Player : MonoBehaviour {
         //Mise à jour de la vitesse actuel
         actualVelocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
 
-        //■■■■■■■■■■SAUT■■■■■■■■■■■■
+        //■■■■■■■■■■ SAUT ■■■■■■■■■■■■
 		if (Input.GetButtonDown("Fire1" + select) && isGrounded)
 		{
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
 		}
 
-		if (Input.GetButton("Fire2" + select))
+        //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
+		if (Input.GetAxis("Fire2"+select) == 1)
 		{
+			Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
 			Vector3 otherPlayer;
 			if (select == "Player1") 
 			{
@@ -64,7 +66,10 @@ public class Player : MonoBehaviour {
 			gameObject.GetComponent<Rigidbody> ().velocity += 1.5f*inbetween;
 			//gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
 		}
-		if (Input.GetButton ("Fire3" + select)) {
+		//■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
+		if (Input.GetAxis("Fire3"+select) == 1)
+		{
+			Debug.Log (Input.GetAxis("Fire3"+select) + " Repulsion" + select);
 			if (!repulsion) 
 			{
 				Vector3 otherPlayer;
@@ -81,7 +86,8 @@ public class Player : MonoBehaviour {
 				gameObject.GetComponent<Rigidbody> ().velocity -= 20 * inbetween;
 				repulsion = true;
 			}
-		} else if(isGrounded)
+		}
+		else if(isGrounded)
 		{
 			repulsion = false;
 		}
