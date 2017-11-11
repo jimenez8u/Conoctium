@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     private float speed = 33.0f;
@@ -11,7 +12,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        
+		
 	}
 	
 	// Update is called once per frame
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour {
         float horizontalMoove = Input.GetAxis("Horizontal" + select);
         float verticalMoove = Input.GetAxis("Vertical" + select);
 
-        //■■■■■■■■■■Moove■■■■■■■■■■■
+        //■■■■■■■■■■ MOOVE ■■■■■■■■■■■
         //On ajoute à la vitesse actuel sa propre vitesse plus celle du joystick * speed * temps entre deux frames
         gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x + Input.GetAxis("Horizontal" + select) * speed * Time.deltaTime, actualVelocity.y, 0);
 
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour {
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
 		if (Input.GetAxis("Fire2"+select) == 1)
 		{
-			Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
+			//Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
 			Vector3 otherPlayer;
 			if (select == "Player1") 
 			{
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour {
 		//■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
 		if (Input.GetAxis("Fire3"+select) == 1)
 		{
-			Debug.Log (Input.GetAxis("Fire3"+select) + " Repulsion" + select);
+			//Debug.Log (Input.GetAxis("Fire3"+select) + " Repulsion" + select);
 			if (!repulsion) 
 			{
 				Vector3 otherPlayer;
@@ -93,7 +94,8 @@ public class Player : MonoBehaviour {
 		{
 			repulsion = false;
 		}
-		if (gameObject.GetComponent<Rigidbody> ().velocity.x > maxSpeed)
+        //■■■■■■■■■■ TESTS VITESSE ■■■■■■■■■■■■
+        if (gameObject.GetComponent<Rigidbody> ().velocity.x > maxSpeed)
 			gameObject.GetComponent<Rigidbody> ().velocity = new Vector3(maxSpeed, gameObject.GetComponent<Rigidbody> ().velocity.y, gameObject.GetComponent<Rigidbody> ().velocity.z);
 
 		if(gameObject.GetComponent<Rigidbody> ().velocity.y > maxSpeed)
@@ -112,7 +114,20 @@ public class Player : MonoBehaviour {
 			gameObject.GetComponent<Rigidbody> ().velocity = new Vector3(gameObject.GetComponent<Rigidbody> ().velocity.x, gameObject.GetComponent<Rigidbody> ().velocity.y, -maxSpeed);
     }
 
-private void IsGrounded()
+
+	private void OnCollisionEnter(Collision coli)
+	{
+		if (coli.gameObject.tag == "Player2" && gameObject.tag == "Player1") 
+		{
+			int level = SceneManager.GetActiveScene ().buildIndex;
+			if(level == SceneManager.sceneCount)
+				SceneManager.LoadScene(0, LoadSceneMode.Single);
+			else
+				SceneManager.LoadScene(level+1, LoadSceneMode.Single);
+		}
+
+	}
+	private void IsGrounded()
 	{
 		float distanceTouch = 1f;
 		Vector3 decal = new Vector3(0,-1,0);     
