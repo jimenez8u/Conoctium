@@ -8,38 +8,56 @@ public class ButtonManager : MonoBehaviour {
 	//GameObject btnmenu;
 	//GameObject btnlevel;
 	Button NewGameButton;
-
+	bool inlevelmenu =false;
+	bool inoptionsmenu =false;
 	void Start () {
 		animator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 		//btnmenu = GameObject.FindGameObjectWithTag("BtnMenu");
 		//btnlevel = GameObject.FindGameObjectWithTag("BtnLevel");
 	}
 
-	public void Transition1 () {
-		
+	public void goinSelectionMenu () {
+		inlevelmenu = true;
 		animator.SetTrigger("MoveMenuRight");
 		StartCoroutine(toright());
 	}
-	public void Transition2 () {
-		
-		animator.SetTrigger("MoveMenuLeft");
-		StartCoroutine(toleft());
 
+	public void goBackMenu () {
+		if (inlevelmenu == true) {
+			animator.SetTrigger ("MoveMenuLeft");
+			StartCoroutine (toleft ());
+			inlevelmenu = false;
+		} else if (inoptionsmenu == true) {
+			animator.SetTrigger ("MoveToTop");
+			StartCoroutine (toleft ());
+			inoptionsmenu = false;
+
+		}
+
+	}
+
+	public void goOptionsMenu () {
+		Debug.Log ("Options menu");
+		inoptionsmenu = true;
+		animator.SetTrigger("MoveToOptions");
+		StartCoroutine(todown());
 	}
 
 
 	 IEnumerator toright () {
-		yield return new WaitForSeconds (2);
 		GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=true;
+		yield return new WaitForSeconds (2);
+
 		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=false;
 
 		GameObject.FindGameObjectWithTag("OptionsButton").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("QuitButton").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().Select(); 
 
 	}
@@ -55,24 +73,42 @@ public class ButtonManager : MonoBehaviour {
 		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
 
 	}
-/*	public void isActive (GameObject gameObject) {
-		int children = gameObject.childCount;
-		for (int i = 0; i < children; ++i)
-		{
-			this.gameObject.GetComponentsInChildren<ButtonManager>;
+
+	IEnumerator todown () {
+		GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=true;
+		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().Select();
+		yield return new WaitForSeconds (1);
+		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("OptionsButton").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("QuitButton").GetComponent<Button>().interactable=false;
+
+
+
 	}
 
 
+	void Update () {
+		Debug.Log (inlevelmenu);
+		if (inlevelmenu==true || inoptionsmenu == true) {
+			if (Input.GetButtonUp("Fire2Player1")) {
+					//goBackMenu();
+					//inlevelmenu=false;
+					Debug.Log ("YOYOYOYOYOYOO");
+			}
+	}
 	}
 
-	public void isnotActive (GameObject gameObject) {
 
-
-
-	}*/
 	public void NewGameBtn(string newGameLevel)
     {
 		
