@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
 	private float maxSpeed = 30f;
 	private float attractSpeed = 100f;
 	private float repulSpeed = 1200f;
+    private float solFriction = 1.2f;
+    private float airFriction = 1.05f;
 	// Use this for initialization
 	void Start ()
     {
@@ -21,7 +23,8 @@ public class Player : MonoBehaviour {
 	void Update ()
     {
 		IsGrounded();
-		gameObject.GetComponent<Rigidbody> ().velocity += new Vector3 (0, -10f * Time.deltaTime, 0);
+        gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0, -10f * Time.deltaTime, 0);            
+        
         //Selection du joueur
         string select = "";
         if(gameObject.tag == "Player1")
@@ -35,8 +38,16 @@ public class Player : MonoBehaviour {
         //On récupère la vitesse actuel
         Vector3 actualVelocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
 
-        //On récupère la direction (normalisé) des joystick dans l'axe x et y
-        float horizontalMoove = Input.GetAxis("Horizontal" + select);
+        if (Input.GetAxis("Horizontal" + select) == 0)
+        {
+            if (isGrounded)
+                actualVelocity.x = (actualVelocity.x) / solFriction;
+            else
+                actualVelocity.x = (actualVelocity.x) / airFriction;
+        }
+
+            //On récupère la direction (normalisé) des joystick dans l'axe x et y
+            float horizontalMoove = Input.GetAxis("Horizontal" + select);
         float verticalMoove = Input.GetAxis("Vertical" + select);
 
         //■■■■■■■■■■ MOOVE ■■■■■■■■■■■
