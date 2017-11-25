@@ -27,21 +27,21 @@ public class Player : MonoBehaviour {
         
         //Selection du joueur
         string select = "";
-        if(gameObject.tag == "Player1")
-        {
-            select = "Player1";
-        }
-        else
-        {
-            select = "Player2";
-        }
+        //if(gameObject.tag == "Player1")
+        //{
+            select = gameObject.tag;
+        //}
+        //else
+        //{
+        //   select = "Player2";
+        //}
         //On récupère la vitesse actuel
         Vector3 actualVelocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
 
-        if (Input.GetAxis("Horizontal" + select) == 0)
+        if (Input.GetAxis("Horizontal" + select) == 0 && Input.GetAxis("Trigger1" + select) == 0)
         {
             if (isGrounded)
-                actualVelocity.x = (actualVelocity.x) / solFriction;
+                actualVelocity.x = (actualVelocity.x * Time.deltaTime) / solFriction;
             else
                 actualVelocity.x = (actualVelocity.x) / airFriction;
         }
