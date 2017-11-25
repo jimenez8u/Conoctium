@@ -559,6 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716484d18f4c0164480c9a57eae7f6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionToBreak: 0
 --- !u!1 &235929760
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716484d18f4c0164480c9a57eae7f6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionToBreak: 0
 --- !u!1 &549125933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716484d18f4c0164480c9a57eae7f6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionToBreak: 0
 --- !u!1 &957426597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,6 +2592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716484d18f4c0164480c9a57eae7f6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionToBreak: 0
 --- !u!1 &1762301246
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,7 +3010,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1f88db295e1c194f980d484b494b117, type: 2}
+  - {fileID: 2100000, guid: 269c4a5270310344aaa20abb4643397c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
