@@ -11,8 +11,8 @@ public class Player : MonoBehaviour {
 	private float maxSpeed = 30f;
 	private float attractSpeed = 100f;
 	private float repulSpeed = 1200f;
-    private float solFriction = 1.2f;
-    private float airFriction = 1.05f;
+    private float solFriction = 1.1f;
+    private float airFriction = 1.025f;
 	// Use this for initialization
 	void Start ()
     {
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour {
         if (Input.GetAxis("Horizontal" + select) == 0 && Input.GetAxis("Trigger1" + select) == 0)
         {
             if (isGrounded)
-                actualVelocity.x = (actualVelocity.x * Time.deltaTime) / solFriction;
+                actualVelocity.x = (actualVelocity.x ) / solFriction;
             else
                 actualVelocity.x = (actualVelocity.x) / airFriction;
         }
