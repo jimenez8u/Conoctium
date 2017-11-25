@@ -262,7 +262,7 @@ InputManager:
     axis: 9
     joyNum: 1
   - serializedVersion: 3
-    m_Name: TriggerPlayer1
+    m_Name: Trigger1Player1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -342,7 +342,7 @@ InputManager:
     axis: 9
     joyNum: 2
   - serializedVersion: 3
-    m_Name: TriggerPlayer2
+    m_Name: Trigger1Player2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

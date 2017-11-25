@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Vitre : MonoBehaviour {
+	public int directionToBreak;
 
 	// Use this for initialization
 	void Start () {
@@ -16,11 +18,12 @@ public class Vitre : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("bite");
-        float breackingSpeed = 0.5f;
-        if(collision.gameObject.GetComponent<Rigidbody>().velocity.x >= breackingSpeed || collision.gameObject.GetComponent<Rigidbody>().velocity.y >= breackingSpeed || collision.gameObject.GetComponent<Rigidbody>().velocity.z >= breackingSpeed)
-        {
-            Debug.Log("AAHAHHAHA");
+        
+		float breackingSpeed = 0.5f;
+		Debug.Log ("x speed " + collision.gameObject.GetComponent<Rigidbody> ().velocity.x);
+		Debug.Log ("y speed " + collision.gameObject.GetComponent<Rigidbody> ().velocity.y);
+		if(Mathf.Abs(collision.gameObject.GetComponent<Rigidbody>().velocity.x) >= breackingSpeed && directionToBreak == 0 || Mathf.Abs(collision.gameObject.GetComponent<Rigidbody>().velocity.y) >= breackingSpeed && directionToBreak == 1)
+        { 
             gameObject.SetActive(false);
         }        
     }

@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-    private float speed = 15.0f;
-    private float jumpSpeed = 10f;
+    private float speed = 20.0f;
+    private float jumpSpeed = 750f;
 	private bool repulsion = false;
 	private bool isGrounded;
-	private float maxSpeed = 25f;
+	private float maxSpeed = 30f;
+	private float attractSpeed = 100f;
+	private float repulSpeed = 1000f;
 	// Use this for initialization
 	void Start ()
     {
@@ -19,7 +21,7 @@ public class Player : MonoBehaviour {
 	void Update ()
     {
 		IsGrounded();
-		
+		gameObject.GetComponent<Rigidbody> ().velocity += new Vector3 (0, -10f * Time.deltaTime, 0);
         //Selection du joueur
         string select = "";
         if(gameObject.tag == "Player1")
@@ -47,13 +49,13 @@ public class Player : MonoBehaviour {
         //■■■■■■■■■■ SAUT ■■■■■■■■■■■■
 		if (Input.GetButtonDown("Fire1" + select) && isGrounded)
 		{
-			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
+			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed * Time.deltaTime, 0);
 		}
 
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
-		if (Input.GetAxis("Fire2"+select) == 1)
+		if (Input.GetAxis("Trigger1"+select) == 1)
 		{
-			//Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
+			Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
 			Vector3 otherPlayer;
 			if (select == "Player1") 
 			{
@@ -65,11 +67,11 @@ public class Player : MonoBehaviour {
 			}
 			Vector3 mePlayer = gameObject.GetComponent<Transform> ().position;
 			Vector3 inbetween = Vector3.Normalize(otherPlayer - mePlayer);
-			gameObject.GetComponent<Rigidbody> ().velocity += 2f*inbetween;
+			gameObject.GetComponent<Rigidbody> ().velocity += attractSpeed * inbetween * Time.deltaTime;
 			//gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
 		}
 		//■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
-		if (Input.GetAxis("Fire3"+select) == 1)
+		if (Input.GetAxis("Trigger2"+select) == 1)
 		{
 			//Debug.Log (Input.GetAxis("Fire3"+select) + " Repulsion" + select);
 			if (!repulsion) 
@@ -85,7 +87,7 @@ public class Player : MonoBehaviour {
 				}
 				Vector3 mePlayer = gameObject.GetComponent<Transform> ().position;
 				Vector3 inbetween = Vector3.Normalize (otherPlayer - mePlayer);
-				gameObject.GetComponent<Rigidbody> ().velocity -= 20 * inbetween;
+				gameObject.GetComponent<Rigidbody> ().velocity -= repulSpeed * inbetween * Time.deltaTime;
 				
 				repulsion = true;
 			}
