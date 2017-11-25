@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	private bool isGrounded;
 	private float maxSpeed = 30f;
 	private float attractSpeed = 100f;
-	private float repulSpeed = 1000f;
+	private float repulSpeed = 1200f;
 	// Use this for initialization
 	void Start ()
     {
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour {
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
 		if (Input.GetAxis("Trigger1"+select) == 1)
 		{
-			Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
+			//Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
 			Vector3 otherPlayer;
 			if (select == "Player1") 
 			{
@@ -131,6 +131,10 @@ public class Player : MonoBehaviour {
 				SceneManager.LoadScene (level + 1, LoadSceneMode.Single);
 			}
 		}
+        else if(coli.gameObject.tag == "Radioactive")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
 	}
 	private void IsGrounded()

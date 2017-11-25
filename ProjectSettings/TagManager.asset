@@ -18,6 +18,7 @@ TagManager:
   - Backbtn
   - Level10btn
   - BackOptionbtn
+  - Radioactive
   layers:
   - Default
   - TransparentFX
