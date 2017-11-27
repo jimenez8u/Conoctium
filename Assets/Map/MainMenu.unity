@@ -543,7 +543,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: goinSelectionMenu
         m_Mode: 1
         m_Arguments:
@@ -665,76 +665,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 386757288}
---- !u!1 &394936193
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 394936194}
-  - component: {fileID: 394936195}
-  - component: {fileID: 394936196}
-  - component: {fileID: 394936197}
-  m_Layer: 0
-  m_Name: ButtonManagerObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &394936194
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 394936193}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 369.5, y: 361, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &394936195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 394936193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 236b65acf9b40fd4bbf1a4b07540ebb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!95 &394936196
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 394936193}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2bb38ac4dcdb3e3469d07f64532e6217, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &394936197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 394936193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b37362d76478746beb05417b576954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &419648744
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +816,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: NewGameBtn
         m_Mode: 5
         m_Arguments:
@@ -945,6 +875,7 @@ GameObject:
   - component: {fileID: 494017694}
   - component: {fileID: 494017693}
   - component: {fileID: 494017698}
+  - component: {fileID: 494017699}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1038,6 +969,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &494017699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 494017692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b37362d76478746beb05417b576954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &532648668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,7 +1057,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: NewGameBtn
         m_Mode: 5
         m_Arguments:
@@ -1380,7 +1322,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: goBackMenu
         m_Mode: 1
         m_Arguments:
@@ -1502,7 +1444,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: ExitGameBtn
         m_Mode: 1
         m_Arguments:
@@ -1624,7 +1566,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: goOptionsMenu
         m_Mode: 1
         m_Arguments:
@@ -1747,7 +1689,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: NewGameBtn
         m_Mode: 5
         m_Arguments:
@@ -1965,7 +1907,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: NewGameBtn
         m_Mode: 5
         m_Arguments:
@@ -2088,7 +2030,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: NewGameBtn
         m_Mode: 5
         m_Arguments:
@@ -2374,7 +2316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394936197}
+      - m_Target: {fileID: 494017699}
         m_MethodName: goBackMenu
         m_Mode: 1
         m_Arguments:
