@@ -11,10 +11,19 @@ public class ButtonManager : MonoBehaviour {
 	Button NewGameButton;
 	bool inlevelmenu =false;
 	bool inoptionsmenu =false;
-	void Start () {
+
+	void Awake()
+	{
 		animator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
-		//btnmenu = GameObject.FindGameObjectWithTag("BtnMenu");
-		//btnlevel = GameObject.FindGameObjectWithTag("BtnLevel");
+	}
+
+	void Start () {
+		
+	}
+
+	void OnEnable()
+	{
+		Time.timeScale = 1;
 	}
 
 	public void goinSelectionMenu () {
@@ -98,15 +107,9 @@ public class ButtonManager : MonoBehaviour {
 	}
 
 
-	void Update () {
-		Debug.Log (inlevelmenu);
-		if (inlevelmenu==true || inoptionsmenu == true) {
-			if (Input.GetButtonUp("Fire2Player1")) {
-					//goBackMenu();
-					//inlevelmenu=false;
-					Debug.Log ("YOYOYOYOYOYOO");
-			}
-	}
+	void Update ()
+	{
+		Debug.Log ("timescale = " + Time.timeScale);
 	}
 
 

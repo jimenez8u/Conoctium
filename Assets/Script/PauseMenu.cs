@@ -10,15 +10,17 @@ public class PauseMenu : MonoBehaviour {
 	private bool isActive = false;
 	
 	// Update is called once per frame
-	void Update () {
-		if(isActive==true) {
+	void Update () 
+	{
+		if(isActive) 
+		{
 			menuObject.SetActive (true);
 			Cursor.visible = true;
 			//Cursor.lockstate - CursorLockMode.Confined;
 			Time.timeScale = 0; 
 			GameObject.FindGameObjectWithTag("Resume_btn").GetComponent<Button>().Select();
 
-	}
+		}
 		else {
 			menuObject.SetActive (false);
 			Cursor.visible = false;
@@ -26,26 +28,25 @@ public class PauseMenu : MonoBehaviour {
 			Time.timeScale = 1; 
 		}
 
-		if(Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown("joystick button 7")){
-
+		if(Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown("joystick button 7"))
+		{
 			Resume_btn ();
 		}
 	}
 
-	public void Resume_btn () {
+	public void Resume_btn () 
+	{
 		isActive = !isActive; 
 	}
 
 	public void LoadSceneBtn(string level)
 	{
-
 		SceneManager.LoadScene(level);
-
 	}
 
 	public void ExitGameBtn()
 	{
-
 		Application.Quit();
 	}
+		
 }
