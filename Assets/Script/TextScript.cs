@@ -15,6 +15,7 @@ public class TextScript : MonoBehaviour {
 	public Text otherText2;
 	public Text RankText;
 	private int nbmax = 80;
+
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(Timetext());
@@ -38,18 +39,21 @@ public class TextScript : MonoBehaviour {
 			TimeText.text = min.ToString()+" : "+sec.ToString();
 			i++;
 		}
-
-		for(i=0;i<150;i++) {
+		int rand1 = Random.Range(0,200); 
+		int rand2 = Random.Range(0,200); 
+		for(i=0;i<rand1;i++) {
 			yield return new WaitForSeconds (0.0001f);
 
 			otherText1.text = i.ToString();
 	}
 
-		for(i=0;i<150;i++) {
+		for(i=0;i<rand2;i++) {
 			yield return new WaitForSeconds (0.0001f);
 
 			otherText2.text = i.ToString();
 		}
+
+
 		if (nbmax >= 0 && nbmax <= 100) {
 			RankText.text = " A ";
 		}

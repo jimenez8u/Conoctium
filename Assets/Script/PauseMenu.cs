@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour {
 			Cursor.visible = true;
 			//Cursor.lockstate - CursorLockMode.Confined;
 			Time.timeScale = 0; 
-			GameObject.FindGameObjectWithTag("Resume_btn").GetComponent<Button>().Select();
+			//GameObject.FindGameObjectWithTag("Resume_btn").GetComponent<Button>().Select();
 
 		}
 		else {
