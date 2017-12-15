@@ -275,8 +275,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 101573469}
   m_LocalRotation: {x: -0, y: -0, z: -0.25245988, w: 0.96760744}
-  m_LocalPosition: {x: -6.79, y: -5.05, z: -0.89}
-  m_LocalScale: {x: 8.00768, y: 0.3, z: 1.4374686}
+  m_LocalPosition: {x: -8.01, y: -4.37, z: -0.89}
+  m_LocalScale: {x: 4.850731, y: 0.3, z: 1.4374686}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -572,7 +572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716484d18f4c0164480c9a57eae7f6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionToBreak: 0
+  horizontal: 1
+  vertical: 0
 --- !u!1 &235929760
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +737,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 495770070}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 10.96, y: 1.04, z: -0.89}
+  m_LocalPosition: {x: 10.96, y: 3.16, z: -0.89}
   m_LocalScale: {x: 1.9250754, y: 0.3, z: 1.4374686}
   m_Children: []
   m_Father: {fileID: 0}
@@ -753,7 +754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716484d18f4c0164480c9a57eae7f6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionToBreak: 0
+  horizontal: 1
+  vertical: 0
 --- !u!1 &549125933
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,12 +934,12 @@ Prefab:
     - target: {fileID: 224326363770674706, guid: b1dd2573e3174574da3bdb7bc7ff86fe,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 474
+      value: 174.5
       objectReference: {fileID: 0}
     - target: {fileID: 224326363770674706, guid: b1dd2573e3174574da3bdb7bc7ff86fe,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 299.5
+      value: 109
       objectReference: {fileID: 0}
     - target: {fileID: 224326363770674706, guid: b1dd2573e3174574da3bdb7bc7ff86fe,
         type: 2}
@@ -1267,7 +1269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716484d18f4c0164480c9a57eae7f6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionToBreak: 0
+  horizontal: 1
+  vertical: 0
 --- !u!1 &957426597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,7 +1349,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 957426597}
   m_LocalRotation: {x: -0, y: -0, z: -0.3479684, w: 0.93750626}
-  m_LocalPosition: {x: 8.09, y: 4.7, z: -0.89}
+  m_LocalPosition: {x: 8.09, y: 6.8199997, z: -0.89}
   m_LocalScale: {x: 7.801528, y: 0.3, z: 1.4374686}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1430,7 +1433,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 967424309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.06, y: -0.09, z: -0.89}
+  m_LocalPosition: {x: 9.06, y: 2.0300002, z: -0.89}
   m_LocalScale: {x: 9.994874, y: 0.3, z: 1.4374686}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2144,7 +2147,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1446414029}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.24, y: -7.08, z: -0.89}
+  m_LocalPosition: {x: -8.24, y: -5.52, z: -0.89}
   m_LocalScale: {x: 11.767028, y: 0.3, z: 1.4374686}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2480,7 +2483,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1467032368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.16, y: 4.53, z: -0.89}
+  m_LocalPosition: {x: 5.16, y: 6.6500006, z: -0.89}
   m_LocalScale: {x: 0.3, y: 5.3483605, z: 1.4374686}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2564,7 +2567,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1470166128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.12, y: 1.94, z: -0.89}
+  m_LocalPosition: {x: 8.12, y: 4.0600004, z: -0.89}
   m_LocalScale: {x: 6.0816565, y: 0.3, z: 1.4374686}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2750,7 +2753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716484d18f4c0164480c9a57eae7f6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionToBreak: 0
+  horizontal: 1
+  vertical: 0
 --- !u!1 &1762301246
 GameObject:
   m_ObjectHideFlags: 0
