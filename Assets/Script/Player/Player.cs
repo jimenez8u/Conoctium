@@ -13,10 +13,11 @@ public class Player : MonoBehaviour {
 	private float repulSpeed = 1200f;
     private float solFriction = 1.1f;
     private float airFriction = 1.025f;
+	private Vector3 SpawnPos = new Vector3(0, 0, 0); 
 	// Use this for initialization
 	void Start ()
     {
-		
+		SpawnPos = gameObject.GetComponent<Transform>().position;
 	}
 	
 	// Update is called once per frame
@@ -46,9 +47,9 @@ public class Player : MonoBehaviour {
                 actualVelocity.x = (actualVelocity.x) / airFriction;
         }
 
-            //On récupère la direction (normalisé) des joystick dans l'axe x et y
-            float horizontalMoove = Input.GetAxis("Horizontal" + select);
-        float verticalMoove = Input.GetAxis("Vertical" + select);
+        //On récupère la direction (normalisé) des joystick dans l'axe x et y
+//        float horizontalMoove = Input.GetAxis("Horizontal" + select);
+//        float verticalMoove = Input.GetAxis("Vertical" + select);
 
         //■■■■■■■■■■ MOOVE ■■■■■■■■■■■
         //On ajoute à la vitesse actuel sa propre vitesse plus celle du joystick * speed * temps entre deux frames
@@ -141,16 +142,22 @@ public class Player : MonoBehaviour {
 				SceneManager.LoadScene (level + 1, LoadSceneMode.Single);
 			}
 		}
-        else if(coli.gameObject.tag == "Radioactive")
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+		else if(coli.gameObject.tag == "Radioactive")
+		{
+			gameObject.GetComponent<Transform>().position = SpawnPos;
+			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+		else if(coli.gameObject.tag == "CheckPoint")
+		{
+			this.SpawnPos = gameObject.GetComponent<Transform>().position;
+			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
 
 	}
 	private void IsGrounded()
 	{
 		float distanceTouch = 1f;
-		Vector3 decal = new Vector3(0,-1,0);     
+//		Vector3 decal = new Vector3(0,-1,0);     
 
 		RaycastHit hit;
 

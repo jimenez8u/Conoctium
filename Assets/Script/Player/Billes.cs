@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Billes : MonoBehaviour {
     private Joint[] joint;
-    private Transform player;
 	// Use this for initialization
 	void Start ()
     {
         joint = GetComponentsInChildren<Joint>();
-        player = GetComponentInParent<Transform>();
 	}
 	
 	// Update is called once per frame

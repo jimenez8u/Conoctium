@@ -19,6 +19,8 @@ TagManager:
   - Level10btn
   - BackOptionbtn
   - Radioactive
+  - Resume_btn
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
